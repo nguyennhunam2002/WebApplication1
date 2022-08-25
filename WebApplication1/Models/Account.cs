@@ -9,6 +9,6 @@
         public string Tuoi { get; set; }
         public string TieuSu { get; set; }
         public string VaiTro { get; set; }
-        public string SoThich { get; set; }
+        public bool SoThich { get; set; }
     }
 }

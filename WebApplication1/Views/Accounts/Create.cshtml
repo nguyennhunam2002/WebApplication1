@@ -4,61 +4,105 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-5">
+                            <h2 class="text-center mb-5">Sign Up</h2>
+                        <form asp-action="Create">
+                            <div>
+                                <a style="color: springgreen">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383h1.312Z"/>
+                                </svg>
+                                </a>
+                                     Your basic info
+                            </div>
+                                <div class="form-outline mb-4">
+                                <label asp-for="Ten" class="form-label" for="form3Example1cg">Name:</label>
+                                <input asp-for="Ten" type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                <span asp-validation-for="Ten" class="text-danger"></span>
+                                </div>
 
-<h1>Create</h1>
+                                <div class="form-outline mb-4">
+                                <label asp-for="Email" class="form-label" for="form3Example3cg">Email:</label>
+                                <input asp-for="Email" type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
 
-<h4>Account</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Ten" class="control-label"></label>
-                <input asp-for="Ten" class="form-control" />
-                <span asp-validation-for="Ten" class="text-danger"></span>
+                                <div class="form-outline mb-4">
+                                <label asp-for="MatKhau" class="form-label" for="form3Example4cg">Password:</label>
+                                <input asp-for="MatKhau" type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                                <span asp-validation-for="MatKhau" class="text-danger"></span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form3Example1cg">Age:</label>
+                                <div>
+                                    @Html.RadioButtonFor(c=>c.Tuoi,"Under 13" ,checked(true))
+                                    <label class="form-check-label" for="radio1">Under 13</label>
+                                </div>
+                                <div>
+                                    @Html.RadioButtonFor(c=>c.Tuoi,"13 or older")
+                                    <label class="form-check-label" for="radio2">13 or older</label>
+                                </div>
+                                <span asp-validation-for="Tuoi" class="text-danger"></span>
+                            </div>
+                                <div>
+                                    <a style="color: springgreen">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-2-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
+                                        </svg>
+                                    </a>
+                                    Your profile
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label asp-for="TieuSu" class="form-label" for="form3Example3cg">Biography:</label>
+                                    <textarea asp-for="TieuSu" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <span asp-validation-for="TieuSu" class="text-danger"></span>
+                                </div>
+                            <div class="form-outline mb-4">
+                                <label asp-for="VaiTro" class="form-label" for="form3Example3cg">Job Role:</label>
+                                <select asp-for="VaiTro" class="form-select" aria-label="Default select example">
+                                    <option value="Front-End Developer">Front-End Developer</option>
+                                    <option value="Back-End Developer">Back-End Developer</option>
+                                </select>
+                                <span asp-validation-for="VaiTro" class="text-danger"></span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form3Example3cg">Interests:</label>
+                                <div class="form-check">
+                                    @Html.CheckBoxFor(account =>account.SoThich )
+                                    <label asp-for="SoThich" class="form-check-label"> Development</label>
+                                </div>
+
+                                <div class="form-check">
+                                    @Html.CheckBoxFor(account =>account.SoThich )
+                                    <label asp-for="SoThich"class="form-check-label"> Design</label>
+                                </div>
+
+                                <div class="form-check">
+                                    @Html.CheckBoxFor(account =>account.SoThich )
+                                    <label asp-for="SoThich" class="form-check-label"> Business</label>
+                                </div>
+                                <span asp-validation-for="SoThich" class="text-danger"></span>
+                            </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="form-group">
+                                        <input type="submit" value="Sign Up" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MatKhau" class="control-label"></label>
-                <input asp-for="MatKhau" class="form-control" />
-                <span asp-validation-for="MatKhau" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tuoi" class="control-label"></label>
-                <input asp-for="Tuoi" class="form-control" />
-                <span asp-validation-for="Tuoi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TieuSu" class="control-label"></label>
-                <input asp-for="TieuSu" class="form-control" />
-                <span asp-validation-for="TieuSu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VaiTro" class="control-label"></label>
-                <input asp-for="VaiTro" class="form-control" />
-                <span asp-validation-for="VaiTro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SoThich" class="control-label"></label>
-                <input asp-for="SoThich" class="form-control" />
-                <span asp-validation-for="SoThich" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+        </div>
 </div>
-
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
