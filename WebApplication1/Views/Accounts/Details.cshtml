@@ -1,0 +1,61 @@
+﻿@model WebApplication1.Models.Account
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Account</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ten)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ten)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MatKhau)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MatKhau)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tuoi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tuoi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TieuSu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TieuSu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VaiTro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VaiTro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SoThich)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SoThich)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
